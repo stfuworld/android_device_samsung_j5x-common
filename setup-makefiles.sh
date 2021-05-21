@@ -18,17 +18,7 @@
 
 set -e
 
-# Required!
-export DEVICES="j5xnlte j5xlte"
-export DEVICE_COMMON=j5x-common
-export BOARD_COMMON=msm8916-common
-export VENDOR=samsung
+export DEVICE_COMMON=msm8916-common
+export DEVICE_SPECIFIED_COMMON_DEVICE="j5xnlte j5xlte"
 
-if [ -z "$SETUP_DEVICE_COMMON_DIR" ]; then
-	export SETUP_DEVICE_COMMON_DIR=1
-fi
-if [ -z "$SETUP_BOARD_COMMON_DIR" ]; then
-	export SETUP_BOARD_COMMON_DIR=0
-fi
-
-./../../$VENDOR/$BOARD_COMMON/setup-makefiles.sh $@
+"./../../${VENDOR}/${DEVICE_COMMON}/setup-makefiles.sh" "$@"
